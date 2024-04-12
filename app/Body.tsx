@@ -7,7 +7,7 @@ export default function () {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const isOnline = useOnlineStatus();
-  console.log(isOnline)
+  console.log(isOnline);
   let searchText = "";
   useEffect(() => {
     fetchData();
@@ -20,17 +20,20 @@ export default function () {
     setFilteredRestaurants(data.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
   const filterRestaurants = () => {
-    setFilteredRestaurants(listOfRestaurants.filter(restaurant => restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())));  
+    setFilteredRestaurants(listOfRestaurants.filter(restaurant => restaurant?.info.name.toLowerCase().includes(searchText.toLowerCase())));  
   }
   if (!isOnline)
     return <h1>Oops it seems you lost internet connection!</h1>
   return (
-    <div className='d-inblock'>
-      <input type="text" placeholder='Hi' onChange={(e) => searchText = e.target.value}/>
-      <button onClick={filterRestaurants}>Search</button>
-      <div className='flex flex-wrap'>
+    <div className='d-inblock m-8'>
+      <div className='flex mb-8'>
+        <input className = 'border-2 border-slate-400 rounded-md h-9' type="text" onChange={(e) => searchText = e.target.value}/>
+        <button onClick={filterRestaurants} className='mx-4 rounded-md bg-red-300 px-2'>Search</button>
+      </div>
+      <div className='flex flex-wrap justify-between'>
       {filteredRestaurants.map(restaurant => <RestaurantCard restaurant = {restaurant} />)}
       </div>
+      
     </div>
   )
 }
