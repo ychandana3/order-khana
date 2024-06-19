@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-export default function RestaurantCard(props: { restaurant: {} }) {
+export default function RestaurantCard(props: { restaurant: any }) {
   const restaurant = props.restaurant.info;
   return (
     <Link href={`/restaurants/${restaurant.id}`}>
