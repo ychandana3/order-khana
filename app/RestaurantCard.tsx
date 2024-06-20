@@ -12,7 +12,7 @@ export default function RestaurantCard(props: { restaurant: any }) {
         <b>
           <h2 className="text-xl p-2 ">{restaurant.name}</h2>
         </b>
-        <h3 className="p-1 font-bold">{restaurant.avgRating}</h3>
+        <h3 className="p-1 font-bold">{restaurant.avgRating} ⭐</h3>
         <h4 className="text-base ">{restaurant.cuisines.join(", ")}</h4>
       </div>
     </Link>
