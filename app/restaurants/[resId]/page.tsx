@@ -1,4 +1,5 @@
 "use client";
+import MenuListCategory from "@/app/components/MenuListCategory";
 import useFetch from "@/app/customHook";
 import { useEffect, useState } from "react";
 
@@ -9,21 +10,15 @@ export default function ResMenu(props: any) {
   if (resMenu === null) return <></>;
   console.log(resMenu);
   const { name, cuisines, avgRating } = resMenu?.cards[2]?.card?.card?.info;
-  const menuList =
-    resMenu.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
+  const menuList = resMenu.cards[4].groupedCard.cardGroupMap.REGULAR;
   return (
     <>
       <h1>{name}</h1>
       <h2>{cuisines.join(", ")}</h2>
       <h3>{avgRating}</h3>
-      <ul className="list-disc">
-        {menuList.title}
-        {menuList.itemCards.map((res) => (
-          <li key={res.card.info.id}>{`${res.card.info.name} - ${
-            res.card.info.price / 100
-          } ₹`}</li>
-        ))}
-      </ul>
+      {menuList.map((menuListCategory, index) => (
+        <MenuListCategory menuList={menuListCategory.cards[index].card.card} />
+      ))}
     </>
   );
 }
