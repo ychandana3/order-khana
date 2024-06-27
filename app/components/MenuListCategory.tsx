@@ -1,12 +1,20 @@
+"use-client";
+import { useState } from "react";
 import MenuListItem from "./MenuListItem";
 
-export default function MenuListCategory(props: { menuList: [{}] }) {
+export default function MenuListCategory(props: { menuList: any }) {
+  const { title, itemCards: items } = props.menuList;
+
+  const [isTitleClicked, setIsTitleClicked] = useState<boolean>(true);
+
   return (
     <ul className="list-disc">
-      {props.menuList.title}
-      {props.menuList.itemCards.map((res) => (
-        <MenuListItem item={res.card.info} />
-      ))}
+      <button onClick={() => setIsTitleClicked((state) => !state)}>
+        {title}
+      </button>
+      {isTitleClicked &&
+        items &&
+        items.map((res: any) => <MenuListItem item={res.card.info} />)}
     </ul>
   );
 }
