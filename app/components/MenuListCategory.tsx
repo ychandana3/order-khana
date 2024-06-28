@@ -8,13 +8,13 @@ export default function MenuListCategory(props: { menuList: any }) {
   const [isTitleClicked, setIsTitleClicked] = useState<boolean>(true);
 
   return (
-    <ul className="list-disc">
+    <div>
       <button onClick={() => setIsTitleClicked((state) => !state)}>
         {title}
       </button>
       {isTitleClicked &&
         items &&
         items.map((res: any) => <MenuListItem item={res.card.info} />)}
-    </ul>
+    </div>
   );
 }
