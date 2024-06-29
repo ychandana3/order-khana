@@ -1,7 +1,7 @@
 "use-client";
 import { useState } from "react";
 import MenuListItem from "./MenuListItem";
-
+import { FaChevronDown } from "react-icons/fa";
 export default function MenuListCategory(props: { menuList: any }) {
   const { title, itemCards: items } = props.menuList;
 
@@ -9,8 +9,12 @@ export default function MenuListCategory(props: { menuList: any }) {
 
   return (
     <div>
-      <button onClick={() => setIsTitleClicked((state) => !state)}>
-        {title}
+      <button
+        onClick={() => setIsTitleClicked((state) => !state)}
+        className="flex items-center justify-between w-full"
+      >
+        <p>{title}</p>
+        <FaChevronDown />
       </button>
       {isTitleClicked &&
         items &&
