@@ -14,7 +14,7 @@ export default function MenuListCategory(props: { menuList: any }) {
         className="flex items-center justify-between w-full"
       >
         <p>{title}</p>
-        <FaChevronDown />
+        <FaChevronDown className={isTitleClicked ? "rotate-180" : ""} />
       </button>
       {isTitleClicked &&
         items &&
