@@ -14,8 +14,10 @@ export default function ResMenu(props: any) {
   return (
     <>
       <h1>{name}</h1>
-      <h2>{cuisines.join(", ")}</h2>
-      <h3>{avgRating}</h3>
+      <div className="flex border border-grey-400">
+        <h3>⭐{avgRating}</h3>
+        <h2>{cuisines.join(", ")}</h2>
+      </div>
       {menuList.map((menuListCategory: any, index: number) => {
         if (index > 0)
           return <MenuListCategory menuList={menuListCategory.card.card} />;
