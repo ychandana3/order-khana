@@ -8,6 +8,7 @@ export default function ResMenu(props: any) {
     `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.508530814499224&lng=73.84783018380404&restaurantId=${props.params.resId}&catalog_qa=undefined&submitAction=ENTER`
   );
   if (resMenu === null) return <></>;
+  //About restaurant information
   const { name, cuisines, avgRating } = resMenu?.cards[2]?.card?.card?.info;
   const menuList = resMenu.cards[4].groupedCard.cardGroupMap.REGULAR.cards;
 
