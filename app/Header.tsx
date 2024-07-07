@@ -29,7 +29,7 @@ export default function Header() {
             Contact
           </Link>
           <Link href="/login" className="p-6 hover:text-[#16a34a]">
-            <Login></Login>
+            Login
           </Link>
         </ul>
       </div>
